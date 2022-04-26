@@ -12,28 +12,26 @@ import Checkout from '../pages/Checkout';
 import Orders from '../pages/Orders';
 import NotFound from '../pages/NotFound';
 import '../styles/global.css';
-import Order from '../components/Order';
 
-const App =()=>{
-    return(
-        <BrowserRouter>
-            <Layout>
-                <Routes>
-                    <Route path='/' element={<Home/>} />
-                    <Route path="/login" element={<Login />} />
-                    <Route path='/recovery-password' element={<RecoveryPassword/>}/>
-                    <Route path='/send-email' element={<SendEmail/>}/>
-                    <Route path='/new-password' element={<NewPassword/>}/>
-                    <Route path='/account' element={<MyAccount/>}/>
-                    <Route path='/singup' element={<CreateAccount/>}/>
-                    <Route path='/checkout' element={<Checkout/>}/>
-                    <Route path='/orders' element={<Orders/>}/>
-                    <Route path='*' element={<NotFound/>}/>
-
-                </Routes>
-            </Layout>
-        </BrowserRouter>
-        
-    );
+const App = () => {
+	return (
+		<BrowserRouter>
+			<Layout>
+				<Switch>
+					<Route exact path="/" component={Home} />
+					<Route exact path="/login" component={Login} />
+					<Route exact path="/password-recovery" component={PasswordRecovery} />
+					<Route exact path="/send-email" component={SendEmail} />
+					<Route exact path="/new-password" component={NewPassword} />
+					<Route exact path="/account" component={MyAccount} />
+					<Route exact path="/signup" component={CreateAccount} />
+					<Route exact path="/checkout" component={Checkout} />
+					<Route exact path="/orders" component={Orders} />
+					<Route path="*" component={NotFound} />
+				</Switch>
+			</Layout>
+		</BrowserRouter>
+	);
 }
-export default App
+
+export default App;
